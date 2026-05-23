@@ -75,6 +75,11 @@ export const withdrawalAPI = {
   getPending: () => api.get('/withdrawals/pending'),
 };
 
+export const addressAPI = {
+  getMy: () => api.get('/withdrawal-addresses/my'),
+  add: (d: any) => api.post('/withdrawal-addresses/edit', d),
+};
+
 export const notificationAPI = {
   getAll: (page = 1) => api.get(`/notifications?page=${page}`),
   getUnreadCount: () => api.get('/notifications/unread-count'),

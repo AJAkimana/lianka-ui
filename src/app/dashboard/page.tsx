@@ -338,7 +338,7 @@ export default function DashboardPage() {
             },
             {
               label: 'Withdrawable',
-              val: data.profit_wallet_balance,
+              val: data.total_profit,
               color: 'text-[#F9A825]',
             },
           ].map((item, i) => (

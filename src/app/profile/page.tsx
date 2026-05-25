@@ -33,23 +33,32 @@ export default function ProfilePage() {
     inapp: true,
   });
 
+  const loadData = async () => {
+    try {
+      const [userRes] = await Promise.all([userAPI.getMe()]);
+      setData({ ...userRes.data });
+    } catch (err) {
+      console.error('Failed to load user data', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     if (!token) {
       router.replace('/login');
       return;
     }
-    userAPI.getMe().then((r) => {
-      setData(r.data);
-      setLoading(false);
-    });
+    loadData();
   }, [token]);
 
-  if (loading)
+  if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Spinner size={32} />
       </div>
     );
+  }
 
   return (
     <div className="screen">

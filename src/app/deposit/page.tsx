@@ -15,6 +15,7 @@ import {
   Loader2,
   Clock,
 } from 'lucide-react';
+import { copyText } from '@/lib/utils';
 
 // Plan definitions matching Screen 06 design exactly
 const PLANS = [
@@ -142,15 +143,6 @@ export default function DepositPage() {
   const plan = PLANS.find((p) => p.id === selectedPlan)!;
   const address = depositInfo?.addresses?.[selectedNetwork] || '';
   const numAmount = Number(amount) || 0;
-
-  const copyAddress = () => {
-    navigator.clipboard.writeText(address);
-    toast.success('Address copied');
-  };
-  const copyTxid = () => {
-    navigator.clipboard.writeText(txid);
-    toast.success('TXID copied');
-  };
 
   // Validate amount against plan minimum
   const validateAmount = () => {
@@ -587,7 +579,10 @@ export default function DepositPage() {
                   <p className="text-[#00C853] text-[11px] font-mono break-all flex-1 leading-snug">
                     {address}
                   </p>
-                  <button onClick={copyAddress} className="shrink-0 mt-0.5">
+                  <button
+                    onClick={() => copyText(address)}
+                    className="shrink-0 mt-0.5"
+                  >
                     <Copy size={14} className="text-[#555] hover:text-white" />
                   </button>
                 </div>
@@ -860,12 +855,7 @@ export default function DepositPage() {
               </div>
               {(row.label === 'Deposit Address' ||
                 row.label === 'Transaction ID') && (
-                <button
-                  onClick={() => {
-                    navigator.clipboard.writeText(row.val);
-                    toast.success('Copied');
-                  }}
-                >
+                <button onClick={() => copyText(row.val)}>
                   <Copy size={13} className="text-[#555]" />
                 </button>
               )}

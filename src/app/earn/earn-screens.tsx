@@ -15,6 +15,7 @@ import { useAuthStore } from '@/store/auth.store';
 import { Header, BottomNav, fmt, ProgressBar, Spinner } from '@/components/ui';
 import { Copy, Share2, ChevronRight } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { copyText, shareText } from '@/lib/utils';
 
 export function EarnPage() {
   const { token, user } = useAuthStore();
@@ -44,10 +45,6 @@ export function EarnPage() {
     );
 
   const refLink = `https://lianka.com/ref/${user?.referral_code || ''}`;
-  const copyLink = () => {
-    navigator.clipboard.writeText(refLink);
-    toast.success('Referral link copied');
-  };
 
   const rankProgress =
     {
@@ -141,21 +138,19 @@ export function EarnPage() {
           <p className="text-[#00C853] text-xs font-mono flex-1 truncate">
             {refLink}
           </p>
-          <button onClick={copyLink}>
+          <button onClick={() => copyText(refLink)}>
             <Copy size={14} className="text-[#555]" />
           </button>
         </div>
         <div className="flex gap-2 mb-3">
           <button
-            onClick={copyLink}
+            onClick={() => copyText(refLink)}
             className="flex-1 btn-secondary py-2.5 text-xs"
           >
             <Copy size={14} /> Copy Link
           </button>
           <button
-            onClick={() =>
-              navigator.share?.({ url: refLink, title: 'Join Lianka' })
-            }
+            onClick={() => shareText(refLink)}
             className="flex-1 btn-secondary py-2.5 text-xs"
           >
             <Share2 size={14} /> Share

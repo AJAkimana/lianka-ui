@@ -34,7 +34,7 @@ export default function ReferralDashboardPage() {
       </div>
     );
 
-  const refLink = `https://lianka.com/ref/${user?.referral_code || ''}`;
+  const refLink = `${process.env.NEXT_PUBLIC_FRONTEND_URL}/ref/${user?.referral_code || ''}`;
 
   const referrals = (data?.referrals || []).filter(
     (r: any) =>

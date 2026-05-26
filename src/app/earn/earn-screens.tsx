@@ -44,7 +44,7 @@ export function EarnPage() {
       </div>
     );
 
-  const refLink = `https://lianka.com/ref/${user?.referral_code || ''}`;
+  const refLink = `${process.env.NEXT_PUBLIC_FRONTEND_URL}/ref/${user?.referral_code || ''}`;
 
   const rankProgress =
     {

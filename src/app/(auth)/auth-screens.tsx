@@ -345,8 +345,23 @@ export default function RegisterPage() {
           />
           <p className="text-[#888] text-xs">
             I agree to the{' '}
-            <span className="text-[#00C853]">Terms of Service</span> and{' '}
-            <span className="text-[#00C853]">Privacy Policy</span>
+            <Link
+              href="/tos"
+              className="text-[#00C853]"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Terms of Service
+            </Link>{' '}
+            and{' '}
+            <Link
+              href="/privacy"
+              className="text-[#00C853]"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Privacy Policy
+            </Link>
           </p>
         </div>
 

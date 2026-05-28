@@ -16,6 +16,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { copyText } from '@/lib/utils';
+import Link from 'next/link';
 
 // Plan definitions matching Screen 06 design exactly
 const PLANS = [
@@ -213,9 +214,12 @@ export default function DepositPage() {
           {/* Plan comparison header */}
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-white font-bold">1. Select Investment Plan</h3>
-            <button className="text-[#1565C0] text-xs flex items-center gap-1">
+            <Link
+              href="/plan-comparison"
+              className="text-[#1565C0] text-xs flex items-center gap-1"
+            >
               <Info size={12} /> Plan Comparison
-            </button>
+            </Link>
           </div>
 
           {/* Horizontal scroll plan cards matching design */}

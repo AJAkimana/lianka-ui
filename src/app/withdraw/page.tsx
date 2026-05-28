@@ -207,7 +207,7 @@ export default function WithdrawPage() {
     }[walletTab] || 0;
 
   const maxWithdrawal = () => {
-    if (walletTab !== 'profit') return walletBalance;
+    if (walletTab !== 'profit' || true) return walletBalance;
     const percents: Record<string, number> = {
       DAILY: 0.05,
       BIWEEKLY: 0.15,

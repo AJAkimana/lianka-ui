@@ -535,13 +535,9 @@ export function AdminWithdrawalsPage() {
   }, []);
 
   const approve = async (id: string) => {
-    if (!txids[id]?.trim()) {
-      toast.error('Enter the TXID of the sent transaction');
-      return;
-    }
     setActionId(id);
     try {
-      await adminAPI.approveWithdrawal(id, txids[id]);
+      await adminAPI.approveWithdrawal(id, txids[id] || '');
       toast.success('Withdrawal marked as completed');
       loadData();
     } catch (err: any) {

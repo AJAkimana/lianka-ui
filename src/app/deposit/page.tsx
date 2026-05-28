@@ -217,6 +217,8 @@ export default function DepositPage() {
             <Link
               href="/plan-comparison"
               className="text-[#1565C0] text-xs flex items-center gap-1"
+              target="_blank"
+              rel="noreferrer"
             >
               <Info size={12} /> Plan Comparison
             </Link>

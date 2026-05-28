@@ -345,21 +345,11 @@ export default function RegisterPage() {
           />
           <p className="text-[#888] text-xs">
             I agree to the{' '}
-            <Link
-              href="/tos"
-              className="text-[#00C853]"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Link href="/tos" className="text-[#00C853]">
               Terms of Service
             </Link>{' '}
             and{' '}
-            <Link
-              href="/privacy"
-              className="text-[#00C853]"
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Link href="/privacy" className="text-[#00C853]">
               Privacy Policy
             </Link>
           </p>

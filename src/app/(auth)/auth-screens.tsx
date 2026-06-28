@@ -752,7 +752,7 @@ export function AccountCreatedPage() {
       </p>
 
       {/* Earth footer strip matching Screen 04 design */}
-      <div className="mx-0 -mx-6 overflow-hidden rounded-b-none">
+      <div className="-mx-6 overflow-hidden rounded-b-none">
         <img
           src="/images/earth-footer.png"
           alt=""
@@ -795,10 +795,7 @@ export function LoginPage() {
       }
       setToken(res.data.access_token);
       setUser(res.data.user);
-      setTimeout(() => {
-        toast.success('Login successful');
-        router.push('/dashboard');
-      }, 2000);
+      router.push('/dashboard');
     } catch (err: any) {
       toast.error(err.response?.data?.message || 'Invalid credentials');
     } finally {

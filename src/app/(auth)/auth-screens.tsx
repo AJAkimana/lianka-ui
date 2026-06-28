@@ -795,7 +795,10 @@ export function LoginPage() {
       }
       setToken(res.data.access_token);
       setUser(res.data.user);
-      router.push('/dashboard');
+      setTimeout(() => {
+        toast.success('Login successful');
+        router.push('/dashboard');
+      }, 2000);
     } catch (err: any) {
       toast.error(err.response?.data?.message || 'Invalid credentials');
     } finally {

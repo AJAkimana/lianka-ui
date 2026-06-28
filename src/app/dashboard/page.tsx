@@ -275,8 +275,6 @@ export default function DashboardPage() {
       setData(meRes.data);
       setUser(meRes.data);
       setUnreadCount(notifRes.data || 0);
-    } catch {
-      router.replace('/login');
     } finally {
       setLoading(false);
     }
